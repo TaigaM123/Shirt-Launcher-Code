@@ -9,16 +9,6 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Servo;
 
-/**
-BUTTONS:
-Tank drive
-When button 3 on left joystick pressed, spin up flywheel motors to 50%
-Both triggers -> fire and spin ratchet
-Button 3 on right joystick -> spin revolver without firing
-Either button 2 -> kill flywheels
-Right joystick buttons 4 + 5 -> raise/lower arm
-**/
- 
 public class Robot extends TimedRobot {
   private DifferentialDrive m_myRobot;
   private Joystick m_leftStick;
