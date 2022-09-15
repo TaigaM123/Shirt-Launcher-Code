@@ -7,13 +7,19 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.Shoot;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-
-
+import edu.wpi.first.wpilibj2.command.PrintCommand;
 //import frc.robot.commands.InterruptAll;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+//import frc.robot.subsystems.TankDrive;
+//import frc.robot.subsystems.Arm;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+//import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -46,14 +52,21 @@ public class RobotContainer {
   private JoystickButton rightJoyButton11 = new JoystickButton(rightJoystick, 11);
   //********************************
 
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final Arm m_Arm = new Arm();
+  private final TankDrive m_Drive = new TankDrive();
+  private final Indexer m_Indexer = new Indexer();
+  private final Shooter m_Shooter = new Shooter();
+
+//  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    m_Drive.setDefaultCommand(new DefaultDrive(leftJoystick.getY(), rightJoystick.getY()));
   }
 
   /**
@@ -63,6 +76,13 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    rightJoyButton4.whenPressed(() -> m_Arm.armUp());
+    rightJoyButton4.whenReleased(() -> m_Arm.armStop());
+    rightJoyButton3.whenPressed(() -> m_Arm.armDown());
+    rightJoyButton3.whenReleased(() -> m_Arm.armStop());
+
+    leftJoyButton1.whenReleased(new Shoot());
+
     //leftJoyButton2.whenPressed(interruptAll);
     //rightJoyButton2.whenPressed(interruptAll);
   }
@@ -71,9 +91,7 @@ public class RobotContainer {
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
    * @return the command to run in autonomous
-   */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return m_autoCommand;
-  }
+    //return m_chooser.getSelected();
+  }*/
 }

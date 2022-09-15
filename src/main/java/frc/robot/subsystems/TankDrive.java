@@ -8,12 +8,17 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class TankDrive extends SubsystemBase {
 
-//copy pasted from 2020 948 robot code
+  //copy pasted from 2020 948 robot code
 
   private MotorController leftMotors = new VictorSP(0);
   private MotorController rightMotors = new VictorSP(1);
 
   private final DifferentialDrive diffDrive = new DifferentialDrive(leftMotors, rightMotors);
+
+  public void diffDrive(double leftspeed,double rightspeed) {
+    rightMotors.setInverted(true);
+    diffDrive.tankDrive(leftspeed,rightspeed);
+  }
 
   @Override
   public void periodic() {
