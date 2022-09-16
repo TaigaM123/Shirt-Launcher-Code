@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
+import frc.robot.Constants.ArmConstants;
 
 public class Arm extends SubsystemBase {
 
@@ -15,11 +16,11 @@ public class Arm extends SubsystemBase {
   }
 
   public void armUp() {
-    armMotor.set(0.35);
+    armMotor.set(ArmConstants.armPower);
   }
 
   public void armDown() {
-    armMotor.set(-0.35);
+    armMotor.set(-ArmConstants.armPower);
   }
 
   public void armStop() {

@@ -20,6 +20,7 @@ public final class Constants {
       public static final int rotateAngle = 135;
       public static final int returnAngle = 45;
     }
-
-    
+    public static final class ArmConstants {
+      public static final double armPower = 0.35;
+    }
 }

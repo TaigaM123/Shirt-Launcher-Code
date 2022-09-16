@@ -76,15 +76,16 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightJoyButton4.whenPressed(() -> m_Arm.armUp());
+    rightJoyButton4.whileHeld(() -> m_Arm.armUp());
     rightJoyButton4.whenReleased(() -> m_Arm.armStop());
-    rightJoyButton3.whenPressed(() -> m_Arm.armDown());
+    rightJoyButton3.whileHeld(() -> m_Arm.armDown());
     rightJoyButton3.whenReleased(() -> m_Arm.armStop());
+    leftJoyButton1.whenPressed(() -> m_Shooter.spinUp(0.9));
 
     leftJoyButton1.whenReleased(new Shoot());
 
-    //leftJoyButton2.whenPressed(interruptAll);
-    //rightJoyButton2.whenPressed(interruptAll);
+    leftJoyButton2.whenPressed(new StopShooter());
+    rightJoyButton2.whenPressed(new StopShooter());
   }
 
   /**
