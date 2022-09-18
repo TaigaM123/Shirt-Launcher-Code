@@ -31,28 +31,20 @@ public class RobotContainer {
   private JoystickButton leftJoyButton2 = new JoystickButton(leftJoystick, 2);
   private JoystickButton leftJoyButton3 = new JoystickButton(leftJoystick, 3);
   private JoystickButton leftJoyButton4 = new JoystickButton(leftJoystick, 4);
-  private JoystickButton leftJoyButton8 = new JoystickButton(leftJoystick, 8);
-  private JoystickButton leftJoyButton9 = new JoystickButton(leftJoystick, 9);
+  private JoystickButton leftJoyButton5 = new JoystickButton(leftJoystick, 5);
 
   private JoystickButton rightJoyButton1 = new JoystickButton(rightJoystick, 1);
   private JoystickButton rightJoyButton2 = new JoystickButton(rightJoystick, 2);
   private JoystickButton rightJoyButton3 = new JoystickButton(rightJoystick, 3);
   private JoystickButton rightJoyButton4 = new JoystickButton(rightJoystick, 4);
   private JoystickButton rightJoyButton5 = new JoystickButton(rightJoystick, 5);
-  private JoystickButton rightJoyButton6 = new JoystickButton(rightJoystick, 6);
-  private JoystickButton rightJoyButton7 = new JoystickButton(rightJoystick, 7);
-  private JoystickButton rightJoyButton10 = new JoystickButton(rightJoystick, 10);
-  private JoystickButton rightJoyButton11 = new JoystickButton(rightJoystick, 11);
   //********************************
-
-  //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final Arm m_Arm = new Arm();
   private final TankDrive m_Drive = new TankDrive();
-  //private final Indexer m_Indexer = new Indexer();
   private final Shooter m_Shooter = new Shooter();
 
-//  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -69,10 +61,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightJoyButton4.whileHeld(new MoveArm(true));
-    rightJoyButton3.whileHeld(new MoveArm(false));
+    rightJoyButton5.whileHeld(new MoveArm(true));
+    rightJoyButton4.whileHeld(new MoveArm(false));
 
-    leftJoyButton1.whenPressed(new SpinUpShooter(0.9));
+    leftJoyButton1.whenPressed(new SpinUpShooter(0.9)); //possibly switch it to a variable based on the throttle position?
     leftJoyButton1.whenReleased(new Shoot());
     rightJoyButton1.whenPressed(new Index());
 
