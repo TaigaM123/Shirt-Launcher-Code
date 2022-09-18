@@ -8,7 +8,6 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.Constants.ShooterConstants;
-import frc.robot.commands.Delay;
 
 /** An example command that uses an example subsystem. */
 public class Index extends CommandBase {

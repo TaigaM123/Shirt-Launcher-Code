@@ -5,13 +5,15 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.*;
+//import frc.robot.commands.Shoot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class StopShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter m_shooter;
-  //private final Indexer m_indexer;
+  private final Shooter m_shooter = new Shooter();
+  private final Shoot shootcommand = new Shoot();
+  private final Arm m_arm = new Arm();
 
   /**
    * Creates a new ExampleCommand.
@@ -21,14 +23,15 @@ public class StopShooter extends CommandBase {
   public StopShooter() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
-    //addRequirements(m_indexer);
+    addRequirements(m_arm);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_shooter.end();
+    shootcommand.end(true);
     m_shooter.spinDown();
+    m_arm.armStop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

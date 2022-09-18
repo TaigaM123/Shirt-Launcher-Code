@@ -14,13 +14,16 @@ package frc.robot;
  */
 public final class Constants {
     public static final class ShooterConstants {
-      public static final double pushDelay = 0.5;
-      public static final double pullDelay = 0.5;
-      public static final double rotateDelay = 1;
-      public static final int rotateAngle = 135;
-      public static final int returnAngle = 45;
+      public static final double pushDelay = 0.5; //sec
+      public static final double pullDelay = 0.5; //sec
+      public static final double rotateDelay = 1; //sec
+      public static final int rotateAngle = 135; //deg
+      public static final int returnAngle = 45; //deg
+      public static final double pullerSpeed = 0.9; //percent
+      public static final double flywheelResting = 0.4; //percent
+      public static final double pullerResting = 0; //percent
     }
     public static final class ArmConstants {
-      public static final double armPower = 0.35;
+      public static final double armPower = 0.35; //percent
     }
 }

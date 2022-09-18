@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
+import frc.robot.Constants.ShooterConstants;
 
 public class Shooter extends SubsystemBase {
 
@@ -18,10 +19,12 @@ public class Shooter extends SubsystemBase {
   }
 
   public void spinUp(double powerlevel) {
+    rFlywheel.setInverted(true);
+    rPuller.setInverted(true);
     lFlywheel.set(powerlevel);
     rFlywheel.set(powerlevel);
-    lPuller.set(0.9);
-    rPuller.set(-0.9);
+    lPuller.set(ShooterConstants.pullerSpeed);
+    rPuller.set(ShooterConstants.pullerSpeed);
   }
 
   public void spinDown() {
@@ -32,10 +35,12 @@ public class Shooter extends SubsystemBase {
   }
 
   public void keepOn() {
-    lFlywheel.set(0.4);
-    rFlywheel.set(-0.4);
-    lPuller.set(0);
-    rPuller.set(0);
+    rFlywheel.setInverted(true);
+    rPuller.setInverted(true);
+    lFlywheel.set(ShooterConstants.flywheelResting);
+    rFlywheel.set(ShooterConstants.flywheelResting);
+    lPuller.set(ShooterConstants.pullerResting);
+    rPuller.set(ShooterConstants.pullerResting);
   }
   
   @Override

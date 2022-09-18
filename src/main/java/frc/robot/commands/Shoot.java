@@ -7,8 +7,6 @@ package frc.robot.commands;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.commands.Index;
-import frc.robot.commands.Delay;
 import frc.robot.Constants.ShooterConstants;
 
 /** An example command that uses an example subsystem. */
@@ -36,7 +34,7 @@ public class Shoot extends CommandBase {
     m_indexer.pushShirt();
     new Delay(ShooterConstants.pushDelay);
     m_shooter.keepOn();
-    new Indexer();
+    new Index();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -45,7 +43,9 @@ public class Shoot extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_shooter.keepOn();
+  }
 
   // Returns true when the command should end.
   @Override
