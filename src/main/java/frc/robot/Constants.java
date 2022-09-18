@@ -22,6 +22,8 @@ public final class Constants {
       public static final double pullerSpeed = 0.9; //percent
       public static final double flywheelResting = 0.4; //percent
       public static final double pullerResting = 0; //percent
+      public static final int pushAngle = 90; //degrees
+      public static final int pullAngle = 180; //degrees
     }
     public static final class ArmConstants {
       public static final double armPower = 0.35; //percent

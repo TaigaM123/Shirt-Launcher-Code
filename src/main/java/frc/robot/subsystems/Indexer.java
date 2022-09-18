@@ -22,11 +22,11 @@ public class Indexer extends SubsystemBase {
   }
 
   public void pushShirt() {
-    m_pusher.setAngle(180);
+    m_pusher.setAngle(ShooterConstants.pushAngle);
   }
 
   public void pullShirt() {
-    m_pusher.setAngle(90);
+    m_pusher.setAngle(ShooterConstants.pullAngle);
   }
 
   public void rotate() {
