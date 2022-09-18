@@ -31,7 +31,6 @@ public class Shoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    //m_shooter.spinUp(0.9);
     m_indexer.pushShirt();
     new Delay(ShooterConstants.pushDelay);
     m_shooter.keepOn();
@@ -50,7 +49,6 @@ public class Shoot extends CommandBase {
       indexcommand.end(true);
     } else {
       m_shooter.keepOn();
-      //indexcommand.end(false);
     }
   }
 

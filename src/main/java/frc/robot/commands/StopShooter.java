@@ -5,7 +5,6 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.*;
-//import frc.robot.commands.Shoot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
@@ -13,7 +12,6 @@ public class StopShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter = new Shooter();
   private final Shoot shootcommand = new Shoot();
-  //private final Arm m_arm = new Arm();
 
   /**
    * Creates a new ExampleCommand.
