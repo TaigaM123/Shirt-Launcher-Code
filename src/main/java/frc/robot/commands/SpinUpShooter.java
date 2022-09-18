@@ -1,36 +1,33 @@
- // Copyright (c) FIRST and other WPILib contributors.
+// Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.*;
-//import frc.robot.commands.Shoot;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class StopShooter extends CommandBase {
+public class SpinUpShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter = new Shooter();
-  private final Shoot shootcommand = new Shoot();
-  //private final Arm m_arm = new Arm();
+  private final double spinPower;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public StopShooter() {
+  public SpinUpShooter(double power) {
+    spinPower = power;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
-    //addRequirements(m_arm);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shootcommand.end(true);
-    m_shooter.spinDown();
+    m_shooter.spinUp(spinPower);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -6,8 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-//import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.Shoot;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
@@ -17,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import frc.robot.subsystems.TankDrive;
 //import frc.robot.subsystems.Arm;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+//import frc.robot.commands.ExampleCommand;
 //import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -76,12 +75,12 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightJoyButton4.whileHeld(() -> m_Arm.armUp());
-    rightJoyButton4.whenReleased(() -> m_Arm.armStop());
-    rightJoyButton3.whileHeld(() -> m_Arm.armDown());
-    rightJoyButton3.whenReleased(() -> m_Arm.armStop());
+    rightJoyButton4.whileHeld(new MoveArm(true));
+    //rightJoyButton4.whenReleased(() -> m_Arm.armStop());
+    rightJoyButton3.whileHeld(new MoveArm(false));
+    //rightJoyButton3.whenReleased(() -> m_Arm.armStop());
 
-    leftJoyButton1.whenPressed(() -> m_Shooter.spinUp(0.9));
+    leftJoyButton1.whenPressed(new SpinUpShooter(0.9));
     leftJoyButton1.whenReleased(new Shoot());
     rightJoyButton1.whenPressed(new Index());
 

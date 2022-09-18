@@ -14,6 +14,7 @@ public class Shoot extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter = new Shooter();
   private final Indexer m_indexer = new Indexer();
+  private final Index indexcommand = new Index();
 
   /**
    * Creates a new ExampleCommand.
@@ -34,7 +35,7 @@ public class Shoot extends CommandBase {
     m_indexer.pushShirt();
     new Delay(ShooterConstants.pushDelay);
     m_shooter.keepOn();
-    new Index();
+    indexcommand.initialize();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -44,7 +45,13 @@ public class Shoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_shooter.keepOn();
+    if (interrupted) {
+      m_shooter.spinDown();
+      indexcommand.end(true);
+    } else {
+      m_shooter.keepOn();
+      //indexcommand.end(false);
+    }
   }
 
   // Returns true when the command should end.

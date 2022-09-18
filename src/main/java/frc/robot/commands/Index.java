@@ -31,8 +31,6 @@ public class Index extends CommandBase {
     new Delay(ShooterConstants.pullDelay);
     m_indexer.rotate();
     new Delay(ShooterConstants.rotateDelay);
-    m_indexer.returnRotator();
-    new Delay(ShooterConstants.rotateDelay);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -41,7 +39,10 @@ public class Index extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_indexer.pullShirt();
+    m_indexer.returnRotator();
+  }
 
   // Returns true when the command should end.
   @Override
