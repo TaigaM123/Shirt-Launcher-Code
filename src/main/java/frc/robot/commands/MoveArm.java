@@ -33,7 +33,6 @@ public class MoveArm extends CommandBase {
     } else {
       m_arm.armDown();
     }
-
   }
 
   // Called every time the scheduler runs while the command is scheduled.
