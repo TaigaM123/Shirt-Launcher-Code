@@ -1,17 +1,14 @@
- // Copyright (c) FIRST and other WPILib contributors.
+// Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class StopShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter m_shooter = new Shooter();
-  private final Indexer m_indexer = new Indexer();
   private final Shoot shootcommand = new Shoot();
   private final Index indexcommand = new Index();
 
@@ -22,15 +19,12 @@ public class StopShooter extends CommandBase {
    */
   public StopShooter() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_shooter);
-    addRequirements(m_indexer);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     shootcommand.end(true);
-    m_shooter.spinDown();
     indexcommand.end(true);
   }
 
