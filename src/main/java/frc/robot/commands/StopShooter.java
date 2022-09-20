@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class StopShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter = new Shooter();
+  private final Indexer m_indexer = new Indexer();
   private final Shoot shootcommand = new Shoot();
+  private final Index indexcommand = new Index();
 
   /**
    * Creates a new ExampleCommand.
@@ -21,7 +23,7 @@ public class StopShooter extends CommandBase {
   public StopShooter() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
-    //addRequirements(m_arm);
+    addRequirements(m_indexer);
   }
 
   // Called when the command is initially scheduled.
@@ -29,6 +31,7 @@ public class StopShooter extends CommandBase {
   public void initialize() {
     shootcommand.end(true);
     m_shooter.spinDown();
+    indexcommand.end(true);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

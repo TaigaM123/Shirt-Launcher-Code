@@ -39,9 +39,7 @@ public class RobotContainer {
   private JoystickButton rightJoyButton5 = new JoystickButton(rightJoystick, 5);
   //********************************
 
-  private final Arm m_Arm = new Arm();
   private final TankDrive m_Drive = new TankDrive();
-  private final Shooter m_Shooter = new Shooter();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
@@ -65,7 +63,7 @@ public class RobotContainer {
 
     leftJoyButton1.whenPressed(new SpinUpShooter(0.9)); //possibly switch it to a variable based on the throttle position?
     leftJoyButton1.whenReleased(new Shoot());
-    rightJoyButton1.whenPressed(new Index());
+    leftJoyButton3.whenPressed(new Index());
 
     leftJoyButton2.whenPressed(new StopShooter());
     rightJoyButton2.whenPressed(new StopShooter());
