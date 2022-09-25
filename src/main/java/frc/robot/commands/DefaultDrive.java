@@ -10,13 +10,12 @@ public class DefaultDrive extends CommandBase {
     private final double d_right;
     
     public DefaultDrive(double left, double right) {
-        d_left = left;
-        d_right = right;
-        addRequirements(m_Drive);
+      d_left = left;
+      d_right = right;
+      addRequirements(m_Drive);
     }
 
     public void execute() {
       m_Drive.diffDrive(d_left,d_right);
     }
-  
 }

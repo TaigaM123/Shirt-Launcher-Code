@@ -41,7 +41,9 @@ public class Shoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    if (!interrupted) {
+    if (interrupted) {
+      m_shooter.spinDown();
+    } else {
       m_shooter.keepOn();
       new Index();
     }

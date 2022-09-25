@@ -25,7 +25,12 @@ public final class Constants {
       public static final int pushAngle = 90; //degrees
       public static final int pullAngle = 180; //degrees
     }
+
     public static final class ArmConstants {
       public static final double armPower = 0.35; //percent
+    }
+
+    public static final class DriveConstants {
+      public static final double slowModePower = 0.5; //percent
     }
 }

@@ -20,6 +20,10 @@ public class TankDrive extends SubsystemBase {
     diffDrive.tankDrive(leftspeed,rightspeed);
   }
 
+  public void maxOutput(double maxOutput) {
+    diffDrive.setMaxOutput(maxOutput);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

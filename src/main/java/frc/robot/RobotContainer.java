@@ -61,12 +61,14 @@ public class RobotContainer {
     rightJoyButton5.whileHeld(new MoveArm(true));
     rightJoyButton4.whileHeld(new MoveArm(false));
 
-    leftJoyButton1.whenPressed(new SpinUpShooter(0.9)); //possibly switch it to a variable based on the throttle position?
-    leftJoyButton1.whenReleased(new Shoot());
+    rightJoyButton1.whenPressed(new SpinUpShooter(0.9)); //possibly switch it to a variable based on the throttle position?
+    rightJoyButton1.whenReleased(new Shoot());
     leftJoyButton3.whenPressed(new Index());
 
     leftJoyButton2.whenPressed(new StopShooter());
     rightJoyButton2.whenPressed(new StopShooter());
+
+    leftJoyButton1.whileHeld(new SetDriveSpeed());
   }
 
   /**
