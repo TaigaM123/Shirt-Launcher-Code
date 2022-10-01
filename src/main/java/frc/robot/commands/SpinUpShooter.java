@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class SpinUpShooter extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter m_shooter = new Shooter();
+  
+  private final Shooter m_shooter;
   private final double spinPower;
 
   /**
@@ -18,7 +19,8 @@ public class SpinUpShooter extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public SpinUpShooter(double power) {
+  public SpinUpShooter(Shooter shooter,double power) {
+    m_shooter = shooter;
     spinPower = power;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);

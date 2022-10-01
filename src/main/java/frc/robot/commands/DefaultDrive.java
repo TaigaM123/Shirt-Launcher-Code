@@ -2,20 +2,27 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.TankDrive;
+import java.util.function.DoubleSupplier;
+import frc.robot.Constants.DriveConstants;
 
 public class DefaultDrive extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    private final TankDrive m_Drive = new TankDrive();
-    private final double d_left;
-    private final double d_right;
+    private final TankDrive m_drive;
+    private final DoubleSupplier d_left;
+    private final DoubleSupplier d_right;
     
-    public DefaultDrive(double left, double right) {
+    public DefaultDrive(TankDrive subsystem, DoubleSupplier left, DoubleSupplier right) {
+      m_drive = subsystem;
       d_left = left;
       d_right = right;
-      addRequirements(m_Drive);
+      addRequirements(subsystem);
+    }
+    
+    public void initialize() {
+      m_drive.maxOutput(DriveConstants.slowModePower);
     }
 
     public void execute() {
-      m_Drive.diffDrive(d_left,d_right);
+      m_drive.diffDrive(d_left.getAsDouble(),d_right.getAsDouble());
     }
 }

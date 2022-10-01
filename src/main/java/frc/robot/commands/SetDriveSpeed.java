@@ -10,19 +10,19 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.DriveConstants;
 
 public class SetDriveSpeed extends CommandBase {
-  private final TankDrive m_drive = new TankDrive();
+  private final TankDrive m_drive;
 
-  public SetDriveSpeed() {
-
+  public SetDriveSpeed(TankDrive drive) {
+    m_drive = drive;
   }
 
   @Override
   public void initialize() {
-    m_drive.maxOutput(DriveConstants.slowModePower);
+    m_drive.maxOutput(1);
   }
 
   @Override
   public void end(boolean interrupted) {
-    m_drive.maxOutput(1);
+    m_drive.maxOutput(DriveConstants.slowModePower);
   }
 }
