@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import edu.wpi.first.wpilibj.Servo;
+//import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import frc.robot.Constants.ShooterConstants;
 
 public class Indexer extends SubsystemBase {
@@ -23,10 +24,12 @@ public class Indexer extends SubsystemBase {
 
   public void pushShirt() {
     m_pusher.setAngle(ShooterConstants.pushAngle);
+    //m_pusher.set(0.5);
   }
 
   public void pullShirt() {
     m_pusher.setAngle(ShooterConstants.pullAngle);
+    //m_pusher.set(0);
   }
 
   public void rotate() {
