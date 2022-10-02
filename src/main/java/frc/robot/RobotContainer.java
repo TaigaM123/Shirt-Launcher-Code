@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -60,17 +61,17 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightJoyButton5.whenPressed(new ArmUp(m_Arm));
-    rightJoyButton4.whenPressed(new ArmDown(m_Arm));
-    rightJoyButton4.whenReleased(new StopArm(m_Arm));
-    rightJoyButton5.whenReleased(new StopArm(m_Arm));
+    rightJoyButton5.whenPressed(new InstantCommand(m_Arm::armUp,m_Arm));
+    rightJoyButton4.whenPressed(new InstantCommand(m_Arm::armDown,m_Arm));
+    rightJoyButton4.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
+    rightJoyButton5.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
 
     rightJoyButton1.whenPressed(new SpinUpShooter(m_Shooter, 0.9)); //possibly switch it to a variable based on the throttle position?
     rightJoyButton1.whenReleased(new Shoot(m_Shooter, m_Indexer));
     leftJoyButton3.whenPressed(new Index(m_Indexer));
 
-    leftJoyButton2.whenPressed(new StopShooter(m_Shooter));
-    rightJoyButton2.whenPressed(new StopShooter(m_Shooter));
+    leftJoyButton2.whenPressed(new InstantCommand(m_Shooter::spinDown,m_Shooter));
+    rightJoyButton2.whenPressed(new InstantCommand(m_Shooter::spinDown,m_Shooter));
 
     leftJoyButton1.whenHeld(new SetDriveSpeed(m_Drive));
   }

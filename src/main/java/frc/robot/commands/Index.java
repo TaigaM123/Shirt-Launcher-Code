@@ -8,6 +8,8 @@ import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /** An example command that uses an example subsystem. */
 public class Index extends CommandBase {
@@ -29,10 +31,7 @@ public class Index extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_indexer.pullShirt();
-    new WaitCommand(ShooterConstants.pullDelay);
-    m_indexer.rotate();
-    new WaitCommand(ShooterConstants.rotateDelay);
+    new SequentialCommandGroup(new InstantCommand(m_indexer::pullShirt,m_indexer),new WaitCommand(ShooterConstants.pullDelay),new InstantCommand(m_indexer::rotate,m_indexer),new WaitCommand(ShooterConstants.rotateDelay));
   }
 
   // Called every time the scheduler runs while the command is scheduled.

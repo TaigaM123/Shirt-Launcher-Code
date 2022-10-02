@@ -5,12 +5,13 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.*;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants.ShooterConstants;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /** An example command that uses an example subsystem. */
-public class Shoot extends CommandBase {
+public class Shoot extends SequentialCommandGroup {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter;
   private final Indexer m_indexer;
@@ -31,8 +32,7 @@ public class Shoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_indexer.pushShirt();
-    new WaitCommand(ShooterConstants.pushDelay);
+    new SequentialCommandGroup(new InstantCommand(m_indexer::pushShirt,m_indexer), new WaitCommand(ShooterConstants.pushDelay), new Index(m_indexer));
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -46,7 +46,6 @@ public class Shoot extends CommandBase {
       m_shooter.spinDown();
     } else {
       m_shooter.keepOn();
-      new Index(m_indexer);
     }
   }
 
