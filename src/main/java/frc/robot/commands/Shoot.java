@@ -20,6 +20,7 @@ public class Shoot extends SequentialCommandGroup {
   public Shoot(Shooter shooter, Indexer indexer) {
     addCommands(new InstantCommand(indexer::pushShirt,indexer),
       new WaitCommand(ShooterConstants.pushDelay),
+      new InstantCommand(shooter::keepOn,shooter),
       new Index(indexer));
   }
 }

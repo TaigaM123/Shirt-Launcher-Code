@@ -12,9 +12,6 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /** An example command that uses an example subsystem. */
 public class Index extends SequentialCommandGroup {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-
-
   /**
    * Creates a new ExampleCommand.
    *
@@ -22,7 +19,9 @@ public class Index extends SequentialCommandGroup {
    */
   public Index(Indexer indexer) {
     addCommands(new InstantCommand(indexer::pullShirt,indexer),
-      new WaitCommand(ShooterConstants.pullDelay),new InstantCommand(indexer::rotate,indexer),
-      new WaitCommand(ShooterConstants.rotateDelay));
+      new WaitCommand(ShooterConstants.pullDelay),
+      new InstantCommand(indexer::rotate,indexer),
+      new WaitCommand(ShooterConstants.rotateDelay),
+      new InstantCommand(indexer::returnRotator,indexer));
   }
 }
