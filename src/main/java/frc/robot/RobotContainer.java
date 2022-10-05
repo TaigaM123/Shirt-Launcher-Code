@@ -6,13 +6,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
-import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
+import frc.robot.Constants.ShooterConstants;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -63,14 +61,16 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightJoyButton5.whenPressed(new InstantCommand(m_Arm::armUp,m_Arm));
-    rightJoyButton4.whenPressed(new InstantCommand(m_Arm::armDown,m_Arm));
-    rightJoyButton4.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
-    rightJoyButton5.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
+    leftJoyButton5.whenPressed(new InstantCommand(m_Arm::armUp,m_Arm));
+    leftJoyButton4.whenPressed(new InstantCommand(m_Arm::armDown,m_Arm));
+    leftJoyButton4.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
+    leftJoyButton5.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
 
-    rightJoyButton1.whenPressed(new SpinUpShooter(m_Shooter, 0.9)); //possibly switch it to a variable based on the throttle position?
+    rightJoyButton1.whenPressed(new SpinUpShooter(m_Shooter, ShooterConstants.DefaultPower)); //possibly switch it to a variable based on the throttle position?
     rightJoyButton1.whenReleased(new Shoot(m_Shooter, m_Indexer));
     leftJoyButton3.whenPressed(new Index(m_Indexer));
+
+    rightJoyButton3.whenPressed(new InstantCommand(m_Shooter::keepOn,m_Shooter));
 
     leftJoyButton2.whenPressed(new InstantCommand(m_Shooter::spinDown,m_Shooter));
     rightJoyButton2.whenPressed(new InstantCommand(m_Shooter::spinDown,m_Shooter));

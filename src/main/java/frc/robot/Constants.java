@@ -24,6 +24,7 @@ public final class Constants {
       public static final double pullerResting = 0; //percent
       public static final int pushAngle = 90; //degrees
       public static final int pullAngle = 180; //degrees
+      public static final double DefaultPower = 0.9; //percent
     }
 
     public static final class ArmConstants {
