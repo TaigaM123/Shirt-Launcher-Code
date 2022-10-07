@@ -33,5 +33,7 @@ public final class Constants {
 
     public static final class DriveConstants {
       public static final double slowModePower = 0.5; //percent
+      public static final double driveSlewRate = 3;
+      public static final double fullSpeedRateLimit = 0.01;
     }
 }
