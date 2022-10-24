@@ -66,7 +66,7 @@ public class RobotContainer {
     leftJoyButton4.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
     leftJoyButton5.whenReleased(new InstantCommand(m_Arm::armStop,m_Arm));
 
-    rightJoyButton1.whenPressed(new SpinUpShooter(m_Shooter, ShooterConstants.DefaultPower)); //possibly switch it to a variable based on the throttle position?
+    rightJoyButton1.whenPressed(new SpinUpShooter(m_Shooter, ShooterConstants.defaultFlywheelSpeed)); //possibly switch it to a variable based on the throttle position?
     rightJoyButton1.whenReleased(new Shoot(m_Shooter, m_Indexer));
     leftJoyButton3.whenPressed(new Index(m_Indexer));
 

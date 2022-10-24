@@ -94,6 +94,7 @@ public class Robot extends TimedRobot {
     //ADDED
     SmartDashboard.putNumber("Left Side 775 Current Draw", PowerDis.getCurrent(0));
     SmartDashboard.putNumber("Right Side 775 Current Draw", PowerDis.getCurrent(1));
+    SmartDashboard.putNumber("Arm Motor Current Draw", PowerDis.getCurrent(2));
   }
 
   @Override

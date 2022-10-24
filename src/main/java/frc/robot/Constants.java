@@ -13,27 +13,27 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final class ShooterConstants {
-      public static final double pushDelay = 0.5; //sec
-      public static final double pullDelay = 0.5; //sec
-      public static final double rotateDelay = 1; //sec
-      public static final int rotateAngle = 135; //deg
-      public static final int returnAngle = 45; //deg
-      public static final double pullerSpeed = 0.9; //percent
-      public static final double flywheelResting = 0.4; //percent
-      public static final double pullerResting = 0; //percent
-      public static final int pushAngle = 90; //degrees
-      public static final int pullAngle = 180; //degrees
-      public static final double DefaultPower = 0.9; //percent
-    }
+  public static final class ShooterConstants {
+    public static final double pushDelay = 0.5; //sec
+    public static final double pullDelay = 0.5; //sec
+    public static final double rotateDelay = 1; //sec
+    public static final int rotateAngle = 135; //deg
+    public static final int returnAngle = 45; //deg
+    public static final double pullerSpeed = 0.9; //percent
+    public static final double flywheelResting = 0.4; //percent
+    public static final double pullerResting = 0; //percent
+    public static final int pushAngle = 90; //degrees
+    public static final int pullAngle = 180; //degrees
+    public static final double defaultFlywheelSpeed = 0.9; //percent
+  }
 
-    public static final class ArmConstants {
-      public static final double armPower = 0.35; //percent
-    }
+  public static final class ArmConstants {
+    public static final double armPower = 0.5; //percent
+  }
 
-    public static final class DriveConstants {
-      public static final double slowModePower = 0.5; //percent
-      public static final double driveSlewRate = 3; //(1/x) seconds to full power
-      public static final double fullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
-    }
+  public static final class DriveConstants {
+    public static final double slowModePower = 0.5; //percent
+    public static final double driveSlewRate = 3; //(1/x) seconds to full power
+    public static final double fullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
+  }
 }
