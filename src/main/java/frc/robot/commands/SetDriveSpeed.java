@@ -11,7 +11,7 @@ import frc.robot.Constants.DriveConstants;
 
 public class SetDriveSpeed extends CommandBase {
   private final TankDrive m_drive;
-  private static double v_fullSpeed = DriveConstants.slowModePower;
+  private static double v_fullSpeed = DriveConstants.kSlowModePower;
 
   public SetDriveSpeed(TankDrive drive) {
     m_drive = drive;
@@ -19,13 +19,13 @@ public class SetDriveSpeed extends CommandBase {
 
   @Override
   public void execute() {
-    v_fullSpeed = v_fullSpeed + DriveConstants.fullSpeedRateLimit;
+    v_fullSpeed = v_fullSpeed + DriveConstants.kFullSpeedRateLimit;
     m_drive.maxOutput(v_fullSpeed);
   }
 
   @Override
   public void end(boolean interrupted) {
-    m_drive.maxOutput(DriveConstants.slowModePower);
-    v_fullSpeed = DriveConstants.slowModePower;
+    m_drive.maxOutput(DriveConstants.kSlowModePower);
+    v_fullSpeed = DriveConstants.kSlowModePower;
   }
 }

@@ -18,7 +18,9 @@ public class Shoot extends SequentialCommandGroup {
    * @param subsystem The subsystem used by this command.
    */
   public Shoot(Shooter shooter, Indexer indexer) {
-    addCommands(new InstantCommand(indexer::pushShirt,indexer),
+    addCommands(
+      new InstantCommand(shooter::gripShirt,shooter),
+      //new InstantCommand(indexer::pushShirt,indexer),
       new WaitCommand(ShooterConstants.pushDelay),
       new InstantCommand(shooter::keepOn,shooter),
       new Index(indexer));

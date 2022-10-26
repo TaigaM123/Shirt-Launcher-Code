@@ -28,12 +28,12 @@ public final class Constants {
   }
 
   public static final class ArmConstants {
-    public static final double armPower = 0.5; //percent
+    public static final double kArmPower = 0.5; //percent
   }
 
   public static final class DriveConstants {
-    public static final double slowModePower = 0.5; //percent
-    public static final double driveSlewRate = 3; //(1/x) seconds to full power
-    public static final double fullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
+    public static final double kSlowModePower = 0.5; //percent
+    public static final double kDriveSlewRate = 3; //(1/x) seconds to full power
+    public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
   }
 }

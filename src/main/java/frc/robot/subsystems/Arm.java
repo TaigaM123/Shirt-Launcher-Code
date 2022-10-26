@@ -16,11 +16,11 @@ public class Arm extends SubsystemBase {
   }
 
   public void armUp() {
-    armMotor.set(ArmConstants.armPower);
+    armMotor.set(ArmConstants.kArmPower);
   }
 
   public void armDown() {
-    armMotor.set(-ArmConstants.armPower);
+    armMotor.set(-ArmConstants.kArmPower);
   }
 
   public void armStop() {

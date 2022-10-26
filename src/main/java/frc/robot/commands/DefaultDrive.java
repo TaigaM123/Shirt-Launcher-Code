@@ -11,8 +11,8 @@ public class DefaultDrive extends CommandBase {
     private final TankDrive m_drive;
     private final DoubleSupplier d_left;
     private final DoubleSupplier d_right;
-    private final SlewRateLimiter m_leftSlewLimit = new SlewRateLimiter(DriveConstants.driveSlewRate);
-    private final SlewRateLimiter m_rightSlewLimit = new SlewRateLimiter(DriveConstants.driveSlewRate);
+    private final SlewRateLimiter m_leftSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
+    private final SlewRateLimiter m_rightSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
     
     public DefaultDrive(TankDrive subsystem, DoubleSupplier left, DoubleSupplier right) {
       m_drive = subsystem;
@@ -22,7 +22,7 @@ public class DefaultDrive extends CommandBase {
     }
     
     public void initialize() {
-      m_drive.maxOutput(DriveConstants.slowModePower);
+      m_drive.maxOutput(DriveConstants.kSlowModePower);
     }
 
     public void execute() {

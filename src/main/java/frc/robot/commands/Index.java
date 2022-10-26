@@ -18,7 +18,8 @@ public class Index extends SequentialCommandGroup {
    * @param subsystem The subsystem used by this command.
    */
   public Index(Indexer indexer) {
-    addCommands(new InstantCommand(indexer::pullShirt,indexer),
+    addCommands(
+      //new InstantCommand(indexer::pullShirt,indexer),
       new WaitCommand(ShooterConstants.pullDelay),
       new InstantCommand(indexer::rotate,indexer),
       new WaitCommand(ShooterConstants.rotateDelay),

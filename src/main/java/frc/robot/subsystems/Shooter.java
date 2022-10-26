@@ -20,9 +20,12 @@ public class Shooter extends SubsystemBase {
 
   public void spinUp(double powerlevel) {
     rFlywheel.setInverted(true);
-    rPuller.setInverted(true);
     lFlywheel.set(powerlevel);
     rFlywheel.set(powerlevel);
+  }
+
+  public void gripShirt() {
+    rPuller.setInverted(true);
     lPuller.set(ShooterConstants.pullerSpeed);
     rPuller.set(ShooterConstants.pullerSpeed);
   }
