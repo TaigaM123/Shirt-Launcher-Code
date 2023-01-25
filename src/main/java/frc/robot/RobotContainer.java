@@ -72,8 +72,8 @@ public class RobotContainer {
 
     rightJoyButton3.whenPressed(new InstantCommand(shooter::keepOn,shooter));
 
-    leftJoyButton2.whenPressed(new InstantCommand(shooter::spinDown,shooter));
-    rightJoyButton2.whenPressed(new InstantCommand(shooter::spinDown,shooter));
+    leftJoyButton2.whenHeld(new InstantCommand(shooter::spinDown,shooter));
+    rightJoyButton2.whenHeld(new InstantCommand(shooter::spinDown,shooter));
 
     leftJoyButton1.whenHeld(new SetDriveSpeed(drivetrain));
   }

@@ -14,16 +14,15 @@ public class Indexer extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public Indexer() {}
 
-  //private VictorSP m_pusherTest = new VictorSP(7);
-  //private VictorSP m_rotatorTest = new VictorSP(8);
-  private Servo m_pusher = new Servo(7);
-  private Servo m_rotator = new Servo(8);
+  //private VictorSP m_rotatorTest = new VictorSP(7);
+  //private Servo m_pusher = new Servo(8);
+  private Servo m_rotator = new Servo(7);
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
-
+/*
   public void pushShirt() {
     m_pusher.setAngle(ShooterConstants.pushAngle);
     //m_pusherTest.set(0.5);
@@ -33,7 +32,7 @@ public class Indexer extends SubsystemBase {
     m_pusher.setAngle(ShooterConstants.pullAngle);
     //m_pusherTest.set(0);
   }
-
+*/
   public void rotate() {
     m_rotator.setAngle(ShooterConstants.rotateAngle);
     //m_rotatorTest.set(0.5);
