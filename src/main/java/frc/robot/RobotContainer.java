@@ -61,21 +61,21 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    leftJoyButton5.whenPressed(new InstantCommand(arm::armUp,arm));
-    leftJoyButton4.whenPressed(new InstantCommand(arm::armDown,arm));
-    leftJoyButton4.whenReleased(new InstantCommand(arm::armStop,arm));
-    leftJoyButton5.whenReleased(new InstantCommand(arm::armStop,arm));
+    leftJoyButton5.onTrue(new InstantCommand(arm::armUp,arm));
+    leftJoyButton4.onTrue(new InstantCommand(arm::armDown,arm));
+    leftJoyButton4.onFalse(new InstantCommand(arm::armStop,arm));
+    leftJoyButton5.onFalse(new InstantCommand(arm::armStop,arm));
 
-    rightJoyButton1.whenPressed(new SpinUpShooter(shooter, ShooterConstants.defaultFlywheelSpeed)); //possibly switch it to a variable based on the throttle position?
-    rightJoyButton1.whenReleased(new Shoot(shooter, indexer));
-    leftJoyButton3.whenPressed(new Index(indexer));
+    rightJoyButton1.onTrue(new SpinUpShooter(shooter, ShooterConstants.defaultFlywheelSpeed)); //possibly switch it to a variable based on the throttle position?
+    rightJoyButton1.onFalse(new Shoot(shooter, indexer));
+    leftJoyButton3.onTrue(new Index(indexer));
 
-    rightJoyButton3.whenPressed(new InstantCommand(shooter::keepOn,shooter));
+    rightJoyButton3.onTrue(new InstantCommand(shooter::keepOn,shooter));
 
-    leftJoyButton2.whenHeld(new InstantCommand(shooter::spinDown,shooter));
-    rightJoyButton2.whenHeld(new InstantCommand(shooter::spinDown,shooter));
+    leftJoyButton2.whileTrue(new InstantCommand(shooter::spinDown,shooter));
+    rightJoyButton2.whileTrue(new InstantCommand(shooter::spinDown,shooter));
 
-    leftJoyButton1.whenHeld(new SetDriveSpeed(drivetrain));
+    leftJoyButton1.whileTrue(new SetDriveSpeed(drivetrain));
   }
 
   /**
