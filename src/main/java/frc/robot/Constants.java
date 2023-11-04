@@ -33,7 +33,7 @@ public final class Constants {
 
   public static final class DriveConstants {
     public static final double kSlowModePower = 0.5; //percent
-    public static final double kDriveSlewRate = 2; //percent increase per second
-    public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
+    public static final double kDriveSlewRate = 2; // x percent increase per second, set to arbitrarily high number to disable
+    public static final double kFullSpeedRateLimit = 0.01; // x percent increase per 20ms, set to arbitrarily high number to disable
   }
 }
